@@ -1,3 +1,9 @@
+<style scoped>
+	h4 { font-weight: 400; }
+	pre, code { border: none; }
+</style>
+
+
 ### JS 相关问题：
 
 #### 1、解释下事件代理。
@@ -31,7 +37,7 @@
   
 #### 9、什么是闭包，如何使用它，为什么要使用它？
 
-闭包就是由函数创造的一个词法作用域，里面创建的变量被引用后，可以在这个词法环境之外自由使用。（ https://secure.wikimedia.org/wikipedia/zh/w/index.php?title=%E9%97%AD%E5%8C%85_%28%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6%29&variant=zh-cn... ）
+闭包就是由函数创造的一个词法作用域，里面创建的变量被引用后，可以在这个词法环境之外自由使用。
 
 闭包通常用来创建内部变量，使得这些变量不能被外部随意修改，同时又可以通过指定的函数接口来操作。
 
@@ -62,7 +68,9 @@ var person = new Person();
 
 #### 15、`.call` 和 `.apply` 的区别是什么？
 
-它们的函数原型分别是 `function.call([thisObj[, arg1[, arg2[, .. [, argN]]]]])` 与 `function.apply([thisObj[, argArray]])`。`.apply` 最多只能有两个参数：新对象 `thisObj` 及一个数组 `argArray`，`.call` 则是直接的参数列表。
+`.call` 的函数原型是 `function.call([thisObj[, arg1[, arg2[, .. [, argN]]]]])`，`.apply` 的函数原型是 `function.apply([thisObj[, argArray]])`。
+
+可以看出，`.apply` 最多只能有两个参数：新对象 `thisObj` 及一个数组 `argArray`，`.call` 则是直接的参数列表。
 
 * 请解释 `Function.prototype.bind` 的作用？
 
