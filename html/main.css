@@ -1,0 +1,304 @@
+/* 套用 Normalize.css 进行样式重置 */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
+    display: block;
+}
+
+audio, canvas, video {
+    display: inline-block;
+}
+
+html {
+    -webkit-text-size-adjust: 100%;
+       -moz-text-size-adjust: 100%;
+        -ms-text-size-adjust: 100%;
+}
+
+/* 清除默认边距，代码来自 html5doctor.com */
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+}
+
+/* 去掉各 Table  cell 的边距并让其边重合 */
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* 去除默认边框 */
+img, figure {
+    border: 0;
+}
+
+hr {
+    height: 0;
+}
+
+/* 去掉列表前的标识, li 会继承，大部分网站通常用列表来很多内容，所以应该当去 */
+ul, ol {
+    list-style: none;
+}
+
+/* 六栏栅格系统 bitty.gs */
+.container {
+    -moz-box-sizing: border-box;
+         box-sizing: border-box;
+    padding: 0 15px;
+    margin: 0 auto;
+}
+
+.container:before,
+.container:after {
+    display: table;
+    content: " ";
+}
+
+.container:after {
+    clear: both;
+}
+
+@media all and (min-width: 800px) {
+    .container {
+        width: 740px;
+    }
+}
+
+@media all and (min-width: 1000px) {
+    .container {
+        width: 940px;
+    }
+}
+
+@media all and (min-width: 1280px) {
+    .container {
+        width: 1220px;
+    }
+}
+
+.container-fluid {
+    padding: 0 15px;
+}
+
+.row {
+    margin: 0 -15px;
+}
+
+.row:before,
+.row:after {
+    display: table;
+    content: " ";
+}
+
+.row:after {
+    clear: both;
+}
+
+.col-1,
+.col-2,
+.col-3,
+.col-4,
+.col-5,
+.col-6 {
+    position: relative;
+    -moz-box-sizing: border-box;
+         box-sizing: border-box;
+    min-height: 1px;
+    padding: 0 15px;
+}
+
+@media all and (min-width: 1280px) {
+    .col-1,
+    .col-2,
+    .col-3,
+    .col-4,
+    .col-5,
+    .col-6 {
+        float: left;
+    }
+    .col-6 {
+        width: 100%;
+    }
+    .col-5 {
+        width: 83.333333%
+    }
+    .col-4 {
+        width: 66.666667%
+    }
+    .col-3 {
+        width: 50%
+    }
+    .col-2 {
+        width: 33.333333%
+    }
+    .col-1 {
+        width: 16.666667%
+    }
+}
+
+
+/* 添加鼠标问号，进一步确保应用的语义是正确的 */
+abbr[title] {
+    border-bottom: 1px dotted;
+    cursor: help;
+}
+
+/* 统一上标和下标 */
+sub, sup {
+    position: relative;
+    font-size: 75%;
+    line-height: 0;
+    vertical-align: baseline;
+}
+sup {
+    top: -0.5em;
+}
+sub {
+    bottom: -0.25em;
+}
+
+
+/* 默认不显示下划线，保持页面简洁 */
+a {
+    background-color: transparent;
+    text-decoration: none;
+}
+
+/* 专名号与着重号 */
+u {
+    border-bottom: 2px solid #ddd;
+    text-decoration: none;
+}
+em {
+    border-bottom: 2px dotted #ddd;
+    font-style: normal;
+}
+
+small, figcaption {
+    font-size: 0.8em;
+    color: #888;
+}
+
+/* 标记，类似于手写的荧光笔的作用 */
+mark {
+    background: #ff0;
+    color: #000;
+}
+
+/* 块/段落引用 */
+blockquote {
+    margin: 1em 0;
+    padding: 0.6em 1em;
+    border-left: 0.4em solid #ddd;
+    color: #999;
+    background: #f8f8f8;
+}
+/* 嵌套的块/段落引用 */
+blockquote blockquote {
+    margin-left: 2em;
+    padding: 0 0 0 1em;
+}
+blockquote p:last-child {
+    margin-bottom: 0;
+}
+blockquote ul:last-child, blockquote ol:last-child {
+    margin-bottom: 0;
+}
+
+/* 代码片断 */
+kbd, pre, code {
+    font-family: 'Source Code Pro', 'Microsoft Yahei', monospace;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    color: #ed6157;
+}
+pre {
+    padding: 1em 1.5em;
+    line-height: 1.2;
+}
+
+kbd {
+    padding: 2px 5px;
+    border: 1px solid #ddd;
+    -moz-border-radius: 2px;
+         border-radius: 2px;
+}
+
+/* 一致化 horizonal rule */
+hr {
+    border: 0;
+    border-top: 2px solid #aaa;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+body {
+    font-family: 'Open Sans', 'Microsoft Yahei', sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #161823;
+}
+
+/* 使用 .typo 来套用中文排版样式 */
+
+/* 保证块/段落之间的空白隔行 */
+.typo p, .typo pre, .typo ul, .typo ol, .typo dl, .typo form, .typo hr, .typo table, .typo figure {
+    margin-bottom: 1.2em;
+}
+
+/* 标题应该更贴紧内容，并与其他块区分，margin 值要相应做优化 */
+.typo h1, .typo h2, .typo h3, .typo h4, .typo h5, .typo h6 {
+    margin-bottom: 0.4em;
+    line-height: 1.5;
+}
+.typo h1 {
+    font-size: 1.8em;
+}
+.typo h2 {
+    font-size: 1.6em;
+}
+.typo h3 {
+    font-size: 1.4em;
+}
+.typo h4 {
+    font-size: 1.2em;
+}
+.typo h5, .typo h6 {
+    font-size: 1em;
+}
+
+/* 在文章中，应该还原 ul 和 ol 的样式 */
+.typo ul {
+    list-style: disc;
+    margin-left: 1.3em;
+}
+.typo ol {
+    list-style: decimal;
+    margin-left: 1.9em;
+}
+.typo li ul, .typo li ol {
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: 2em;
+}
+.typo li ul {
+    list-style: circle;
+}
+
+/* 设置图片的最大宽度为父容器的宽度，高度同比缩放 */
+.typo img {
+    max-width: 100%;
+}
+
+/* 高亮显示文章中的链接 */
+.typo a {
+    color: #1abc9c;
+}
+
+/* 让链接在 hover/focus 状态下显示下划线 */
+.typo a:hover,
+.typo a:focus {
+    border-bottom: 2px solid #f2f2f2;
+}

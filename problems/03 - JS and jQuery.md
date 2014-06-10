@@ -1,8 +1,3 @@
-<style scoped>
-	h4 { font-weight: 400; }
-	pre, code { border: none; }
-</style>
-
 
 ### JS 相关问题：
 
@@ -68,7 +63,7 @@ var person = new Person();
 
 #### 15、`.call` 和 `.apply` 的区别是什么？
 
-`.call` 的函数原型是 `function.call([thisObj[, arg1[, arg2[, .. [, argN]]]]])`，`.apply` 的函数原型是 `function.apply([thisObj[, argArray]])`。
+`.call` 的函数原型是 `function.call([thisObj[, arg1[, arg2[, .. [, argN]]]]])`，而 `.apply` 的函数原型则是 `function.apply([thisObj[, argArray]])`。
 
 可以看出，`.apply` 最多只能有两个参数：新对象 `thisObj` 及一个数组 `argArray`，`.call` 则是直接的参数列表。
 
@@ -172,8 +167,5 @@ var s = 'Hello World';
 
 #### 10、请指出 `$` 和 `$.fn` 的区别，或者说出 `$.fn` 的用途。
 
-#### 11、请优化下列选择器：
-```javascript
-$(".foo div#bar:eq(0)")
-```
+#### 11、请优化选择器：`$(".foo div#bar:eq(0)")`
 
