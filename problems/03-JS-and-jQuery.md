@@ -82,6 +82,8 @@ var person = new Person();
 
 * 请尽可能详尽的解释 AJAX 的工作原理。
 
+![传统 Web 模型与 Ajax 模型比较](../images/ajax.png)
+
 * 请解释 JSONP 的工作原理，以及它为什么不是真正的 AJAX。
 
 * 你使用过 JavaScript 模板系统吗？
@@ -145,13 +147,27 @@ var s = 'Hello World';
 
 #### 1、解释 "chaining"。
 
+Chaining 允许我们在一条语句中允许多个 jQuery 方法（在相同的元素上）。比如下面的代码：
+
+```javascript
+$('.button').addClass('dummy')
+			.css('color', 'red')
+         	.fadeIn('slow');
+```
+
 #### 2、解释 "deferreds"。
+
+deferred 是 jQuery 的回调函数解决方案。它解决了如何处理耗时操作的问题，对那些操作提供了更好的控制，以及统一的编程接口。
 
 #### 3、你知道哪些针对 jQuery 的优化方法。
 
 一、使用 CDN 载入 jQuery 文件；二、优化 jQuery 选择器，优先使用 ID 和 Tag 选择器，尽量避免直接用 Class 选择；三、缓冲 jQuery 对象；四、使用链式操作；五、巧用 `.date()` 方法为节点存储数据
 
 #### 4、请解释 `.end()` 的用途。
+
+`.end()` 方法结束当前链条中的最近的筛选操作，并将匹配元素集还原为之前的状态。
+
+大多数 jQuery 的遍历方法会操作一个 jQuery 对象实例，并生成一个匹配不同 DOM 元素集的新对象。当发生这种情况时，应该会把新的元素集推入维持在对象中的堆栈内。每次成功的筛选方法调用都会把新元素推入堆栈中。如果我们需要老的元素集，可以使用 `.end()` 从堆栈中弹出新集合。
 
 #### 5、你如何给一个事件处理函数命名空间，为什么要这样做？
 
@@ -161,11 +177,23 @@ var s = 'Hello World';
 
 #### 7、什么是效果队列？
 
-#### 8、请指出 `.get()`，`[]`，`eq()` 的区别。
+#### 8、请指出 `.get()`，`[]`，`.eq()` 的区别。
+
+`.eq()` 返回的是一个 jQuery 对象，所以可以使用 jQuery 对象的方法，而 `.get()` 返回一个原生 DOM 对象。
 
 #### 9、请指出 `.bind()`，`.live()` 和 `.delegate()` 的区别。
 
+`.bind()` 直接将事件处理函数绑定到元素上。`.live()` 和 `.delegate()` 则是将事件处理函数绑定到一个特定父元素上，当事件冒泡到这个级时，再对目标元素执行事件处理函数，其中 `.live()` 默认绑定到 `document`。
+
+```javascript
+$('a').bind('click', function () { alert('That tickles!') });
+$('a').live('click', function () { alert('That tickles!') });
+$('.container').delegate('a', 'click', function () { alert('That tickles!') });
+```
+
 #### 10、请指出 `$` 和 `$.fn` 的区别，或者说出 `$.fn` 的用途。
+
+首先需要知道的是，`$` 是一个封装好的 jQUery 类，而 `$.fn` 是 `$.prototype` 的简写形式。`$.fn` 常用作给 jQuery 实例扩展方法，在编写 jQuery 插件时使用。
 
 #### 11、请优化选择器：`$(".foo div#bar:eq(0)")`
 
