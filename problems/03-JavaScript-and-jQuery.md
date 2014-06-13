@@ -67,28 +67,38 @@ var person = new Person();
 
 可以看出，`.apply` 最多只能有两个参数：新对象 `thisObj` 及一个数组 `argArray`，`.call` 则是直接的参数列表。
 
-#### 16 请解释 `Function.prototype.bind` 的作用？
+#### 16、请解释 `Function.prototype.bind` 的作用？
 
-#### 17 你何时优化自己的代码？
+#### 17、你何时优化自己的代码？
 
-#### 18 你能解释一下 JavaScript 中的继承是如何工作的吗？
+#### 18、你能解释一下 JavaScript 中的继承是如何工作的吗？
 
 在 JS 中，继承是通过原型链来实现的。JS 中的每一个对象都有一个原型链，
 
 #### 19、在什么时候你会使用 `document.write()`？
-	* 大多数生成的广告代码依旧使用 `document.write()`，虽然这种用法会让人很不爽。
+> 大多数生成的广告代码依旧使用 `document.write()`，虽然这种用法会让人很不爽。
 
 #### 20、请指出浏览器特性检测，特性推断和浏览器 UA 字符串嗅探的区别？
 
 #### 21、请尽可能详尽的解释 AJAX 的工作原理。
 
-![传统 Web 模型与 Ajax 模型比较](../images/ajax.png)
 
-####  请解释 JSONP 的工作原理，以及它为什么不是真正的 AJAX。
+Ajax 全称为 Asynchronous JavaScript and XML（异步 JavaScript 和 XML），是一种创建交互式网页应用的网页开发技术。
+Ajax 的原理简单来说通过 XmlHttpRequest 对象来向服务器发异步请求，从服务器获得数据，然后用 JavaScript来操作 DOM 而更新页面。这其中最关键的一步就是从服务器获得请求数据。
 
-####  你使用过 JavaScript 模板系统吗？如有使用过，请谈谈你都使用过哪些库，比如 Mustache.js，Handlebars 等等。
+以往我们浏览网页的原理是由 Client 向 Server 提交页面申请，再由 Server 将申请通过 HTTP 传回给 Client 生成浏览页面：
 
-####  请解释变量声明提升。
+![Ajax 原理图](../images/ajax-a.png)
+
+使用 Ajax 后的工作原理如下图，可见通过 Ajax 在用户交互方面有了很大改进，用户可以不用为提交了 Form 而长时间等待服务器应答，而且通过 Ajax 也可以开发出华丽的 Web 交互页面。
+
+![Ajax 原理图](../images/ajax-b.png)
+
+#### 22、请解释 JSONP 的工作原理，以及它为什么不是真正的 AJAX。
+
+#### 23、你使用过 JavaScript 模板系统吗？如有使用过，请谈谈你都使用过哪些库，比如 Mustache.js，Handlebars 等等。
+
+#### 24、请解释变量声明提升。
 
 变量提升，就是把变量提升提到函数的顶部位置。需要说明的是，变量提升只是提升变量的声明，并不会把赋值也提升上来。
 ```javascript
@@ -101,34 +111,39 @@ var s = 'Hello World';
 ```
 结果将是 `undefined`。
 
-#### 请描述下事件冒泡机制。
+#### 25、请描述下事件冒泡机制。
 
-#### "attribute" 和 "property" 的区别是什么？
+#### 26、"attribute" 和 "property" 的区别是什么？
 
 ####  为什么扩展 JavaScript 内置对象不是好的做法？
 
-#### 请指出 document load 和 document ready 两个事件的区别。
+#### 27、请指出 document load 和 document ready 两个事件的区别。
 
-#### `==` 和 `===` 有什么不同？
+#### 28、`==` 和 `===` 有什么不同？
 
-#### 你如何从浏览器的 URL 中获取查询字符串参数。
+如果两边的操作数具有相同的类型和值，`===` 返回 `true`，`!==` 返回 `false`。—— JavaScript：语言精粹
 
-#### 请解释一下 JavaScript 的同源策略。
+然而，当使用 `==` 和 `!=` 时，你可能会遇到类型不同的情况，这种情况下，操作数的类型会被强制转换成一样的再做比较，这可能不是你想要的结果。
 
-#### 请描述一下 JavaScript 的继承模式。
 
-#### 如何实现下列代码：
+#### 29、你如何从浏览器的 URL 中获取查询字符串参数。
+
+#### 30、请解释一下 JavaScript 的同源策略。
+
+#### 31、请描述一下 JavaScript 的继承模式。
+
+#### 32、如何实现下列代码：
 ```javascript
 [1,2,3,4,5].duplicator(); // [1,2,3,4,5,1,2,3,4,5]
 ```
 
-#### 描述一种 JavaScript 中实现 memoization（避免重复运算）的策略。
+#### 33、描述一种 JavaScript 中实现 memoization（避免重复运算）的策略。
 
-#### 什么是三元表达式？“三元” 表示什么意思？
+#### 34、什么是三元表达式？“三元”表示什么意思？
 
-#### 函数的参数元是什么？
+#### 35、函数的参数元是什么？
 
-#### 什么是 `"use strict;"` ? 使用它的好处和坏处分别是什么？
+#### 36、什么是 `"use strict;"` ? 使用它的好处和坏处分别是什么？
 
 `"use strict;"` 将使 JS 代码以严格模式（strict mode）运行。设立"严格模式"的目的，主要有以下几个：
 
@@ -158,7 +173,17 @@ deferred 是 jQuery 的回调函数解决方案。它解决了如何处理耗时
 
 #### 3、你知道哪些针对 jQuery 的优化方法。
 
-一、使用 CDN 载入 jQuery 文件；二、优化 jQuery 选择器，优先使用 ID 和 Tag 选择器，尽量避免直接用 Class 选择；三、缓冲 jQuery 对象；四、使用链式操作；五、巧用 `.date()` 方法为节点存储数据
+1、尽量使用 CDN 加载（CDN Benefits），在CDN加载失败时，要回源到本地服务器的同版本 jQuery。
+2、尽可能在页面底部加载 jQuery 和 JavaScript。
+3、一个页面只使用一个 Document Ready，便于调试和跟踪，不要把事件直接写在HTML元素上，这样不方便调试。
+4、尽可能的使用 ID 选择器。因为 jQuery 中 ID 选择器使用的是 `document.getElementById()`，所以更快。越靠右侧越具体。
+5、缓冲 jQuery 对象；
+6、使用链式调用代替变量缓存和多次调用选择器，当链式调用超过 3 级的时候，适当的换行增加可读性。
+7、尽量不要把 CSS 混在 JS 中。
+8、巧用 `.date()` 方法为节点存储数据
+9、使用 `.ajax()`，避免 `.getJson()` 或者 `.get()`，它们在内部也是调用 `.ajax()` 的，并且指定 dataType 属性。
+10、不要在 https 的站点上请求 http，使用依赖协议的 URL，不要把数据加在 url 上，使用 data 属性。
+11、对于 ajax 加载的内容，使用委托绑定事件，这样可以在元素不存在的时候执行绑定。（之后 ajax 加载进 DOM 结构中）
 
 #### 4、请解释 `.end()` 的用途。
 
