@@ -1,0 +1,590 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><style>/* Fonts */
+@font-face{
+  font-family: octicons-anchor;
+  src: url(data:font/woff;charset=utf-8;base64,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) format('woff');
+}
+
+@font-face{
+  font-family: fontawesome-mini;
+  src: url(data:font/woff;charset=utf-8;base64,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) format('woff');
+}
+
+/* Body */
+html { font-size: 100%; overflow-y: scroll; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+
+body{
+  color:#4d4d4c;
+  font-family:Georgia, Palatino, 'Palatino Linotype', Times, 'Times New Roman',
+              "Hiragino Sans GB", "STXihei", "微软雅黑", serif;
+  font-size:12px;
+  line-height:1.5em;
+  background:#fefefe;
+  width: 45em;
+  margin: 10px auto;
+  padding: 30px;
+  border: 1px solid #ddd;
+  outline: 1300px solid #f8f8f8;
+}
+
+/* Links */
+a{ color: #06d; text-decoration:none; }
+a:hover{ color: #06e; text-decoration: underline; }
+a:active{ color:#faa700; }
+a:focus{ outline: thin dotted; }
+a:hover, a:active{ outline: 0; }
+
+::-moz-selection { background:#a8d1ff; color:#000 }
+::selection { background:#a8d1ff; color:#000 }
+
+a::-moz-selection { background:#a8d1ff; color:#0645ad }
+a::selection { background:#a8d1ff; color:#0645ad }
+
+/* Header Anchor Links*/
+.headeranchor-link {
+  color:#111;
+  border: 0;
+  margin-left: -20px;
+  padding-right: 6px;
+  cursor: pointer;
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 0;
+  bottom: 0;
+}
+
+.headeranchor {
+  font: normal normal 16px octicons-anchor;
+  line-height: 1;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.headeranchor-link:hover,
+.headeranchor-link:visited,
+.headeranchor-link:active
+{ text-decoration: none; color:#4d4d4c; }
+.headeranchor-link:hover .headeranchor:before,
+h1:hover .headeranchor:before,
+h2:hover .headeranchor:before,
+h3:hover .headeranchor:before,
+h4:hover .headeranchor:before,
+h5:hover .headeranchor:before,
+h6:hover .headeranchor:before
+{ content: '\f05c'; }
+
+abbr { cursor: pointer; }
+
+/* Paragraphs */
+p { margin:1em 0; }
+
+/* Images */
+img {
+  max-width:100%;
+  border: 0;
+  -ms-interpolation-mode: bicubic;
+  vertical-align: middle;
+}
+
+/* Headers */
+h1,h2,h3,h4,h5,h6 {
+  font-weight:normal;
+  color:#111;
+  line-height: 1.7;
+  position: relative;
+}
+h4,h5,h6{ font-weight: bold; }
+h1 { font-size:2.5em; border-bottom: 1px solid #ddd;}
+h2 { font-size:2em; border-bottom:1px solid #eee; padding-bottom: 5px; }
+h3 { font-size:1.5em; }
+h4 { font-size:1.2em; }
+h5 { font-size:1em; }
+h6 { font-size:0.9em; }
+
+/* Block Quotes */
+blockquote {
+  color:#666666;
+  margin:0;
+  padding-left: 3em;
+  border-left: 0.5em #EEE solid;
+}
+hr { display: block; height: 2px; border: 0; border-top: 1px solid #aaa;border-bottom: 1px solid #eee; margin: 1em 0; padding: 0; }
+
+/* Raw Blocks */
+pre, code, kbd, samp {
+  color: #000;
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  font-size: 0.88em;
+  background-color: #F8F8F8;
+  border: 1px solid #CCC;
+}
+
+pre {
+  padding: 10px;
+  overflow: auto;
+}
+
+code { padding: 0 3px 0 3px; }
+pre code { border: 0; padding: 0; }
+
+/* Admonition */
+.admonition {
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  font-size: 0.88em;
+  padding: 0.5em 1em 0.5em 1em;
+  margin: 10px auto;
+  color: #888888;
+  background-color: #F8F8F8;
+  border: 1px solid #888888;
+}
+
+.admonition p { padding: 0; margin: 0; }
+.admonition-title { font-weight: bold; margin: 0; }
+
+.admonition-icon {
+  font: normal normal 16px fontawesome-mini;
+  line-height: 1.5;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  float: left;
+}
+
+.admonition.attention { color: #4F8A10; background-color: #DFF2BF; border: 1px solid #4F8A10; }
+.admonition.caution { color: #D63301; background-color: #FFCCBA; border: 1px solid #D63301; }
+.admonition.hint { color: #00529B; background-color: #BDE5F8; border: 1px solid #00529B; }
+.admonition.danger { color: #D8000C; background-color: #FFBABA; border: 1px solid #D8000C; }
+.admonition.question { color: #00049b; background-color: #BDC8F8; border: 1px solid #00049b; }
+.admonition.note { color: #9F6000; background-color: #FEEFB3; border: 1px solid #9F6000; }
+
+.attention > .admonition-icon:before { content: "\f058\00a0"; }
+.caution > .admonition-icon:before { content: "\f06a\00a0"; }
+.hint > .admonition-icon:before { content: "\f05a\00a0"; }
+.danger > .admonition-icon:before { content: "\f056\00a0"; }
+.question > .admonition-icon:before { content: "\f059\00a0"; }
+.note > .admonition-icon:before { content: "\f040\00a0"; }
+
+/* progress bar*/
+.progress {
+  display: block;
+  width: 300px;
+  margin: 10px 0;
+  height: 24px;
+  border: 1px solid #ccc;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  background-color: #F8F8F8;
+  position: relative;
+  box-shadow: inset -1px 1px 3px rgba(0, 0, 0, .1);
+}
+
+.progress-label {
+  position: absolute;
+  text-align: center;
+  font-weight: bold;
+  width: 100%; margin: 0;
+  line-height: 24px;
+  color: #333;
+  text-shadow:
+    1px 1px 0px #fefefe,
+    -1px -1px 0px #fefefe,
+    -1px 1px 0px #fefefe,
+    1px -1px 0px #fefefe,
+    0px 1px 0px #fefefe,
+    0px -1px 0px #fefefe,
+    1px 0px 0px #fefefe,
+    -1px 0px 0px #fefefe,
+    1px 1px 2px #000;
+  -webkit-font-smoothing: antialiased !important;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 24px;
+  float: left;
+  border-right: 1px solid #ccc;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  background-color: #34c2e3;
+  box-shadow: inset 0 1px 0px rgba(255, 255, 255, .5);
+  background-size: 30px 30px;
+  background-image: -webkit-linear-gradient(
+    135deg,
+    rgba(255, 255, 255, .4) 27%, transparent 27%,
+    transparent 53%, rgba(255, 255, 255, .4) 53%,
+    rgba(255, 255, 255, .4) 77%, transparent 77%,
+    transparent
+  );
+  background-image: -moz-linear-gradient(
+    135deg,
+    rgba(255, 255, 255, .4) 27%, transparent 27%,
+    transparent 53%, rgba(255, 255, 255, .4) 53%,
+    rgba(255, 255, 255, .4) 77%, transparent 77%,
+    transparent
+  );
+  background-image: -ms-linear-gradient(
+    135deg,
+    rgba(255, 255, 255, .4) 27%, transparent 27%,
+    transparent 53%, rgba(255, 255, 255, .4) 53%,
+    rgba(255, 255, 255, .4) 77%, transparent 77%,
+    transparent
+  );
+  background-image: -o-linear-gradient(
+    135deg,
+    rgba(255, 255, 255, .4) 27%, transparent 27%,
+    transparent 53%, rgba(255, 255, 255, .4) 53%,
+    rgba(255, 255, 255, .4) 77%, transparent 77%,
+    transparent
+  );
+  background-image: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, .4) 27%, transparent 27%,
+    transparent 53%, rgba(255, 255, 255, .4) 53%,
+    rgba(255, 255, 255, .4) 77%, transparent 77%,
+    transparent
+  );
+}
+
+.progress-100plus .progress-bar { background-color: #1ee038; }
+.progress-80plus .progress-bar { background-color: #86e01e; }
+.progress-60plus .progress-bar { background-color: #f2d31b; }
+.progress-40plus .progress-bar { background-color: #f2b01e; }
+.progress-20plus .progress-bar { background-color: #f27011; }
+.progress-0plus .progress-bar { background-color: #f63a0f; }
+
+.gloss .progress-bar {
+  box-shadow:
+    inset -1px 1px 0px rgba(255, 255, 255, .5),
+    inset 0 -4px 12px rgba(255, 255, 255, .7),
+    inset 0 4px 12px rgba(255, 255, 255, .7),
+    inset 0 -12px 0px rgba(0, 0, 0, .05),
+    inset 1px -1px 0px rgba(255, 255, 255, .2);
+}
+
+.candystripe-animate .progress-bar{
+  -webkit-animation: animate-stripes 3s linear infinite;
+  -moz-animation: animate-stripes 3s linear infinite;
+  animation: animate-stripes 3s linear infinite;
+}
+
+@-webkit-keyframes animate-stripes { 0% { background-position: 0 0; } 100% { background-position: 60px 0; } }
+@-moz-keyframes animate-stripes { 0% { background-position: 0 0; } 100% { background-position: 60px 0; } }
+@keyframes animate-stripes { 0% { background-position: 0 0; } 100% { background-position: 60px 0; } }
+
+/* Inlines */
+b, strong { font-weight: bold; }
+
+mark { background: #ff0; color: #000; font-style: italic; font-weight: bold; }
+
+sub, sup { font-size: 75%; line-height: 0; position: relative; vertical-align: baseline; }
+sup { top: -0.5em; }
+sub { bottom: -0.25em; }
+
+dfn { font-style: italic; }
+
+/* Lists */
+ul, ol { padding-left: 30px; }
+li p:last-child { margin:0 }
+.task-list-item { list-style-type: none; }
+.task-list-item input { float:left; margin-left: -20px; margin-top: 6px; }
+dt { font-weight: bold; font-style: italic;}
+dd { margin: 0 0 0 2em; }
+
+/* Tables */
+table { width: 100%; border-collapse: collapse; overflow-x: auto; overflow-y: hidden; display: block;}
+table tr { background-color: #fefefe; }
+table tr:nth-child(2n) { background-color: #f8f8f8; }
+td, th { border: 1px solid #ddd; padding: 6px 13px; }
+
+/* Codehilite Tables */
+.codehilitetable { border: 0; border-spacing: 0; }
+.linenos, .code, .codehilitetable td { border: 0; padding: 0; }
+td:not(.linenos) .linenodiv { padding: 0 !important; }
+.code { width: 100%; }
+.linenos div pre, .linenodiv pre {
+  border: 0;
+  border-top: 1px solid #CCC;
+  border-left: 1px solid #CCC;
+  border-right: 1px solid #CCC;
+  border-bottom: 1px solid #CCC;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  -webkit-border-top-left-radius: 3px;
+  -webkit-border-bottom-left-radius: 3px;
+  -moz-border-radius-topleft: 3px;
+  -moz-border-radius-bottomleft: 3px;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+
+.code div pre {
+  border: 0;
+  border-top: 1px solid #CCC;
+  border-right: 1px solid #CCC;
+  border-bottom: 1px solid #CCC;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  -webkit-border-top-right-radius: 3px;
+  -webkit-border-bottom-right-radius: 3px;
+  -moz-border-radius-topright: 3px;
+  -moz-border-radius-bottomright: 3px;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+
+/* Media */
+@media only screen and (min-width: 480px) {
+  body{ font-size:14px; }
+}
+
+@media only screen and (min-width: 768px) {
+  body{ font-size:16px; }
+}
+
+@media print {
+  * { background: transparent !important; color: black !important; filter:none !important; -ms-filter: none !important; }
+  body{ font-size:12pt; max-width:100%; outline:none; border: 0;}
+  a, a:visited { text-decoration: underline; }
+  .headeranchor-link { display: none; }
+  hr { height: 1px; border:0; border-bottom:1px solid black; }
+  a[href]:after { content: " (" attr(href) ")"; }
+  abbr[title]:after { content: " (" attr(title) ")"; }
+  .ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after { content: ""; }
+  pre { white-space: pre; white-space: pre-wrap; word-wrap: break-word; }
+  pre, blockquote { border: 1px solid #999; padding-right: 1em; page-break-inside: avoid; }
+  .progress, .progress-bar { box-shadow: none; }
+  tr, img { page-break-inside: avoid; }
+  img { max-width: 100% !important; }
+  p, h2, h3 { orphans: 3; widows: 3; }
+  h2, h3 { page-break-after: avoid; }
+}
+</style><title>03-JavaScriptandjQuery</title></head><body><h3 id="js"><a name="user-content-js" href="#js" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>JS 相关问题</h3>
+<h4 id="1"><a name="user-content-1" href="#1" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>1、解释下事件代理。</h4>
+<p>当页面中存在大量元素，而且每一个都要一次或多次绑定事件处理器（比如 onclick）时，由于每绑定一个事件处理器都是有代价的，所以这种情况会随着 DOM 元素的增多而严重影响页面性能。</p>
+<p>一个简单而优雅的处理 DOM 事件的技术是事件代理（event delegation）机制。它是基于这样一个事实：事件逐层冒泡并能被父级元素捕获。使用时间代理，只需给外层元素绑定一个处理器，就可以处理在其子元素上出发的所有事件。</p>
+<h4 id="2-javascript-this"><a name="user-content-2-javascript-this" href="#2-javascript-this" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>2、解释下 JavaScript 中 <code>this</code> 是如何工作的。</h4>
+<p>JavaScript 有一套完全不同于其它语言的对 <code>this</code> 的处理机制。在五种不同的情况下，<code>this</code> 指向的各不相同。</p>
+<p>1、全局范围内 <code>this</code> 将会指向全局对象，默认是 <code>window</code>；<br />
+2、函数调用时，<code>this</code> 也会指向全局对象；<br />
+3、方法调用时，<code>this</code> 指向的是调用此方法的对象；<br />
+4、调用构造函数（如果函数倾向于和 <code>new</code> 关键词一块使用，则我们称这个函数是 构造函数）时，在函数内部，<code>this</code> 指向新创建的对象；<br />
+5、显式设置 <code>this</code>，当使用 <code>Function.prototype</code> 上的 <code>call()</code> 或者 <code>apply()</code> 方法时，函数内的 <code>this</code> 将会被 显式设置为函数调用的第一个参数。如下的代码中，</p>
+<pre><code class="javascript">var n = 0;
+function output() {
+    alert(this.x);
+}
+
+var bar = {};
+bar.n = 1;
+bar.s = output;
+bar.s.apply();      // 0
+bar.m.apply(bar);   // 1
+</code></pre>
+
+<p><code>apply()</code> 的参数为空时，默认调用全局对象。因此，这时的运行结果为 <code>0</code>；把 <code>apply()</code> 的参数为 <code>bar</code> 后，运行结果就变成了 <code>1</code>，说明这时 <code>this</code> 代表的是对象 <code>bar</code>。</p>
+<h4 id="3"><a name="user-content-3" href="#3" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>3、解释下原型继承的原理。</h4>
+<p>JavaScript 中的对象是基于原型的。</p>
+<p>对象通过一个内部属性绑定到它的原型。默认情况下，所有对象都是对象 <code>Object</code> 的实例，并继承了所有基本方法，比如 <code>toString()</code>。同时，也可以定义并使用构造器来创建另一种类型的原型：</p>
+<pre><code class="javascript">// 定义
+function Book(title, publisher) {
+    this.title = title;
+    this.publisher = publisher;
+}
+
+Book.prototype.sayTitle = function () {
+    alert(this.title);
+};
+
+var book1 = new Book(&quot;JavaScript: The Good Parts&quot;, &quot;Yahoo! Press&quot;);
+
+book1.sayTitle();
+aler(book1.toString());
+</code></pre>
+
+<p>构造器 <code>Book</code> 用来创建一个新的 <code>Book</code> 实例，叫 <code>book1</code>。实例 <code>book1</code> 的原型是 <code>Book.prototype</code>，而 <code>Book.prototype</code> 的原型是 <code>Object</code>。这个过程创建了一个原型链。</p>
+<h4 id="4-javascript"><a name="user-content-4-javascript" href="#4-javascript" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>4、你是如何测试 JavaScript 代码的？</h4>
+<p>一、利用 FireBug 或 Chrome Developer Tool 进行测试。二、使用单元测试工具 QUnit、YUI Test 等。</p>
+<h4 id="5amd-vs-commonjs"><a name="user-content-5amd-vs-commonjs" href="#5amd-vs-commonjs" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>5、AMD vs. CommonJS？</h4>
+<h4 id="6"><a name="user-content-6" href="#6" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>6、什么是哈希表？</h4>
+<p>哈希表是一种根据关键字直接访问存储位置的数据结构。如 PHP 中的关联数组、Python 中的字典等，都是属于哈希表结构的数据类型。</p>
+<h4 id="7-iifefunction-foo-iife"><a name="user-content-7-iifefunction-foo-iife" href="#7-iifefunction-foo-iife" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>7、解释下为什么接下来这段代码不是 IIFE（立即调用的函数表达式）：<code>function foo(){ }();</code>。要做哪些改动使它变成 IIFE？</h4>
+<p>将其改为如下的匿名函数即可实现 IIFE：</p>
+<pre><code class="javascript">(function () {
+    // code
+})();
+</code></pre>
+
+<h4 id="8nullundefined-undeclared"><a name="user-content-8nullundefined-undeclared" href="#8nullundefined-undeclared" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>8、描述以下变量的区别：<code>null</code>，<code>undefined</code> 或 <code>undeclared</code>？该如何检测它们？</h4>
+<p><code>null</code> 表示“没有对象”，即该处不应该有值。典型用法是：1、作为函数的参数，表示该函数的参数不是对象；2、作为对象原型链的终点。</p>
+<p><code>undefined</code> 表示“缺少值”，就是此处应该有一个值，但是还没有定义。典型用法是：1、变量被声明了，但没有赋值时，就等于 <code>undefined</code>；2、调用函数时，应该提供的参数没有提供，该参数等于 <code>undefined</code>；3、对象没有赋值的属性，该属性的值为 <code>undefined</code>；4、函数没有返回值时，默认返回 <code>undefined</code>。</p>
+<h4 id="9"><a name="user-content-9" href="#9" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>9、什么是闭包，如何使用它，为什么要使用它？</h4>
+<p>闭包就是由函数创造的一个词法作用域，里面创建的变量被引用后，可以在这个词法环境之外自由使用。</p>
+<p>闭包通常用来创建内部变量，使得这些变量不能被外部随意修改，同时又可以通过指定的函数接口来操作。</p>
+<h4 id="10"><a name="user-content-10" href="#10" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>10、请举出一个匿名函数的典型用例？</h4>
+<p>匿名函数可以用作回调函数执行，可以防止全局变量污染。</p>
+<p>此外在 JS 框架中常使用匿名函数来避免全局变量的污染。</p>
+<h4 id="11-javascript"><a name="user-content-11-javascript" href="#11-javascript" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>11、解释 “JavaScript 模块模式” 以及你在何时使用它。</h4>
+<ul>
+<li>如果有提到无污染的命名空间，可以考虑加分。</li>
+<li>如果你的模块没有自己的命名空间会怎么样？</li>
+</ul>
+<h4 id="12"><a name="user-content-12" href="#12" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>12 你是如何组织自己的代码？是使用模块模式，还是使用经典继承的方法？</h4>
+<h4 id="13-javascript"><a name="user-content-13-javascript" href="#13-javascript" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>13 请指出 JavaScript 宿主对象和原生对象的区别？</h4>
+<p>何为“宿主对象”？  ECMAScript中的“宿主”当然就是我们网页的运行环境，即“操作系统”和“浏览器”。所有非本地对象都是宿主对象（host object），即由 ECMAScript 实现的宿主环境提供的对象。<br />
+所有的BOM和DOM对象都是宿主对象。因为其对于不同的“宿主”环境所展示的内容不同。</p>
+<h4 id="14"><a name="user-content-14" href="#14" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>14、指出下列代码的区别：</h4>
+<pre><code class="javascript">function Person(){} 
+var person = Person(); 
+var person = new Person();
+</code></pre>
+
+<p>第一行是定义了一个函数 <code>Person</code>，第二行代码是，第三行代码是用构造函数 <code>Person()</code> 构造一个实例对象 <code>person</code>。</p>
+<h4 id="15call-apply"><a name="user-content-15call-apply" href="#15call-apply" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>15、<code>.call</code> 和 <code>.apply</code> 的区别是什么？</h4>
+<p><code>.call</code> 的函数原型是 <code>function.call([thisObj[, arg1[, arg2[, .. [, argN]]]]])</code>，而 <code>.apply</code> 的函数原型则是 <code>function.apply([thisObj[, argArray]])</code>。</p>
+<p>可以看出，<code>.apply</code> 最多只能有两个参数：新对象 <code>thisObj</code> 及一个数组 <code>argArray</code>，<code>.call</code> 则是直接的参数列表。</p>
+<h4 id="16-functionprototypebind"><a name="user-content-16-functionprototypebind" href="#16-functionprototypebind" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>16、请解释 <code>Function.prototype.bind</code> 的作用？</h4>
+<h4 id="17"><a name="user-content-17" href="#17" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>17、你何时优化自己的代码？</h4>
+<p>保持代码质量和架构的可维护性，在需要优化的时候才进行优化。</p>
+<h4 id="18-javascript"><a name="user-content-18-javascript" href="#18-javascript" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>18、你能解释一下 JavaScript 中的继承是如何工作的吗？</h4>
+<p>在 JS 中，继承是通过原型链来实现的。JS 中的每一个对象都有一个原型链，</p>
+<h4 id="19-documentwrite-documentwrite"><a name="user-content-19-documentwrite-documentwrite" href="#19-documentwrite-documentwrite" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>19、在什么时候你会使用 <code>document.write()</code>？（ 大多数生成的广告代码依旧使用 <code>document.write()</code>，虽然这种用法会让人很不爽）</h4>
+<h4 id="20-ua"><a name="user-content-20-ua" href="#20-ua" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>20、请指出浏览器特性检测，特性推断和浏览器 UA 字符串嗅探的区别？</h4>
+<h4 id="21-ajax"><a name="user-content-21-ajax" href="#21-ajax" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>21、请尽可能详尽的解释 AJAX 的工作原理。</h4>
+<p>Ajax 全称为 Asynchronous JavaScript and XML（异步 JavaScript 和 XML），是一种创建交互式网页应用的网页开发技术。<br />
+Ajax 的原理简单来说通过 XmlHttpRequest 对象来向服务器发异步请求，从服务器获得数据，然后用 JavaScript来操作 DOM 而更新页面。这其中最关键的一步就是从服务器获得请求数据。</p>
+<p>以往我们浏览网页的原理是由 Client 向 Server 提交页面申请，再由 Server 将申请通过 HTTP 传回给 Client 生成浏览页面：</p>
+<p><img alt="Ajax 原理图" src="N:\code\Front-end-Interview\problems/../images/ajax-a.png" /></p>
+<p>使用 Ajax 后的工作原理如下图，可见通过 Ajax 在用户交互方面有了很大改进，用户可以不用为提交了 Form 而长时间等待服务器应答，而且通过 Ajax 也可以开发出华丽的 Web 交互页面。</p>
+<p><img alt="Ajax 原理图" src="N:\code\Front-end-Interview\problems/../images/ajax-b.png" /></p>
+<h4 id="22-jsonp-ajax"><a name="user-content-22-jsonp-ajax" href="#22-jsonp-ajax" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>22、请解释 JSONP 的工作原理，以及它为什么不是真正的 AJAX。</h4>
+<p>JSON-P（JSON with padding）是一种可执行的 JavaScript 数据，它可以被调用并使用动态脚本注入技术插入到任何网站，解决了 Ajax 的跨域问题。</p>
+<h4 id="23-javascript-mustachejshandlebars"><a name="user-content-23-javascript-mustachejshandlebars" href="#23-javascript-mustachejshandlebars" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>23、你使用过 JavaScript 模板系统吗？如有使用过，请谈谈你都使用过哪些库，比如 Mustache.js，Handlebars 等等。</h4>
+<h4 id="24"><a name="user-content-24" href="#24" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>24、请解释变量声明提升。</h4>
+<p>变量提升，就是把变量提升提到函数的顶部位置。需要说明的是，变量提升只是提升变量的声明，并不会把赋值也提升上来。</p>
+<pre><code class="javascript">var s = 'Hello World';
+(function () {
+    // 变量 s 的声明将会提升到这里，值为未定义
+    alert(s);
+    var s = 'I love you';
+})();
+</code></pre>
+
+<p>结果将是 <code>undefined</code>。</p>
+<h4 id="25"><a name="user-content-25" href="#25" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>25、请描述下事件冒泡机制。</h4>
+<h4 id="26attribute-property"><a name="user-content-26attribute-property" href="#26attribute-property" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>26、&rdquo;attribute&rdquo; 和 &ldquo;property&rdquo; 的区别是什么？</h4>
+<h4 id="javascript"><a name="user-content-javascript" href="#javascript" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>为什么扩展 JavaScript 内置对象不是好的做法？</h4>
+<h4 id="27-document-load-document-ready"><a name="user-content-27-document-load-document-ready" href="#27-document-load-document-ready" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>27、请指出 document load 和 document ready 两个事件的区别。</h4>
+<p><code>ready</code> 表示文档的 DOM 已经加载完成（不包含图片、视频等资源）；<code>load</code> 表示整个网页加载完成。可以看出，<code>ready</code> 事件发生在 <code>load</code> 事件之前。</p>
+<h4 id="28"><a name="user-content-28" href="#28" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>28、<code>==</code> 和 <code>===</code> 有什么不同？</h4>
+<p>如果两边的操作数具有一致的类型且拥有相同的值时，<code>===</code> 返回 <code>true</code>，<code>!==</code> 返回 <code>false</code>。</p>
+<p>然而，当使用 <code>==</code> 和 <code>!=</code> 时，你可能会遇到类型不同的情况，这种情况下，操作数的类型会被强制转换成一样的再做比较，这可能不是你想要的结果。下面是一些例子：</p>
+<pre><code class="javascript">'' == '0'               // false
+0  == ''                // true
+0  == '0'               // true
+
+false == 'false'        // false
+false == '0'            // true
+false == undefined      // false
+false == null           // false
+null  == undefined      // true
+</code></pre>
+
+<p>所以，建议始终使用 <code>===</code> 和 <code>!==</code> 比较两个运算数。</p>
+<h4 id="29-url"><a name="user-content-29-url" href="#29-url" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>29、你如何从浏览器的 URL 中获取查询字符串参数。</h4>
+<pre><code class="javascript">var query = window.location.search
+</code></pre>
+
+<h4 id="30-javascript"><a name="user-content-30-javascript" href="#30-javascript" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>30、请解释一下 JavaScript 的同源策略。</h4>
+<p>同源策略限制了一个源（origin）中加载文本或脚本与来自其它源（origin）中资源的交互方式。</p>
+<p>同源策略出于安全，不允许源 A 的脚本读取（read）源 B 的资源的内容，但却允许执行（execute）源 B 的资源。这个概念也有些拗口。简单说，有一个页面调用了 Google CDN 提供的 jQuery，以及其它 CDN 上的 Bootstrap JS、CSS 代码，虽然它们与我的博客不同源，但我可以用它们来操作这个页面，并应用样式，这是执行的概念。</p>
+<p>参考：<a href="https://developer.mozilla.org/zh-CN/docs/Web/Security/Same-origin_policy">https://developer.mozilla.org/zh-CN/docs/Web/Security/Same-origin_policy</a></p>
+<h4 id="31-javascript"><a name="user-content-31-javascript" href="#31-javascript" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>31、请描述一下 JavaScript 的继承模式。</h4>
+<h4 id="32"><a name="user-content-32" href="#32" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>32、如何实现下列代码：</h4>
+<pre><code class="javascript">[1, 2, 3, 4, 5].duplicator();   // [1, 2, 3, 4, 5, 1, 2, 3, 4, 5]
+</code></pre>
+
+<p>将此方法添加至 <code>Array.prototype</code> 实现，代码如下：</p>
+<pre><code class="javascript">Array.prototype.duplicator = function () {
+    return this.concat(this);
+}
+</code></pre>
+
+<h4 id="33-javascript-memoization"><a name="user-content-33-javascript-memoization" href="#33-javascript-memoization" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>33、描述一种 JavaScript 中实现 memoization（避免重复运算）的策略。</h4>
+<p>事件代理</p>
+<h4 id="34"><a name="user-content-34" href="#34" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>34、什么是三元表达式？“三元”表示什么意思？</h4>
+<h4 id="35"><a name="user-content-35" href="#35" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>35、函数的参数元是什么？</h4>
+<h4 id="36-use-strict"><a name="user-content-36-use-strict" href="#36-use-strict" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>36、什么是 <code>use strict;</code> ? 使用它的好处和坏处分别是什么？</h4>
+<p><code>use strict;</code> 将使 JS 代码以严格模式（strict mode）运行。设立&rdquo;严格模式&rdquo;的目的，主要有以下几个：</p>
+<ul>
+<li>消除Javascript语法的一些不合理、不严谨之处，减少一些怪异行为;</li>
+<li>消除代码运行的一些不安全之处，保证代码运行的安全；</li>
+<li>提高编译器效率，增加运行速度；</li>
+<li>为未来新版本的Javascript做好铺垫。</li>
+</ul>
+<p>&ldquo;严格模式&rdquo;体现了 Javascript 更合理、更安全、更严谨的发展方向，包括IE 10在内的主流浏览器，都已经支持它，许多大项目已经开始全面拥抱它。<br />
+另一方面，同样的代码，在&rdquo;严格模式&rdquo;中，可能会有不一样的运行结果；一些在&rdquo;正常模式&rdquo;下可以运行的语句，在&rdquo;严格模式&rdquo;下将不能运行。</p>
+<h3 id="jquery"><a name="user-content-jquery" href="#jquery" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>jQuery 相关问题</h3>
+<h4 id="1-chaining"><a name="user-content-1-chaining" href="#1-chaining" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>1、解释 &ldquo;chaining&rdquo;。</h4>
+<p>Chaining 允许我们在一条语句中允许多个 jQuery 方法（在相同的元素上）。比如下面的代码：</p>
+<pre><code class="javascript">$('.button').addClass('dummy')
+            .css('color', 'red')
+            .fadeIn('slow');
+</code></pre>
+
+<h4 id="2-deferreds"><a name="user-content-2-deferreds" href="#2-deferreds" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>2、解释 &ldquo;deferreds&rdquo;。</h4>
+<p>deferred 是 jQuery 的回调函数解决方案。它解决了如何处理耗时操作的问题，对那些操作提供了更好的控制，以及统一的编程接口。</p>
+<p>参考：<a href="http://www.html5rocks.com/zh/tutorials/es6/promises/">JavaScript Promise</a></p>
+<h4 id="3-jquery"><a name="user-content-3-jquery" href="#3-jquery" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>3、你知道哪些针对 jQuery 的优化方法。</h4>
+<p>1、尽量使用 CDN 加载（CDN Benefits），在CDN加载失败时，要回源到本地服务器的同版本 jQuery。<br />
+2、尽可能在页面底部加载 jQuery 和 JavaScript。<br />
+3、一个页面只使用一个 Document Ready，便于调试和跟踪，不要把事件直接写在HTML元素上，这样不方便调试。<br />
+4、尽可能的使用 ID 选择器。因为 jQuery 中 ID 选择器使用的是 <code>document.getElementById()</code>，所以更快。越靠右侧越具体。<br />
+5、缓冲 jQuery 对象；<br />
+6、使用链式调用代替变量缓存和多次调用选择器，当链式调用超过 3 级的时候，适当的换行增加可读性。<br />
+7、尽量不要把 CSS 混在 JS 中。<br />
+8、巧用 <code>.date()</code> 方法为节点存储数据<br />
+9、使用 <code>.ajax()</code>，避免 <code>.getJson()</code> 或者 <code>.get()</code>，它们在内部也是调用 <code>.ajax()</code> 的，并且指定 dataType 属性。<br />
+10、不要在 https 的站点上请求 http，使用依赖协议的 URL，不要把数据加在 url 上，使用 data 属性。<br />
+11、对于 ajax 加载的内容，使用委托绑定事件，这样可以在元素不存在的时候执行绑定。（之后 ajax 加载进 DOM 结构中）</p>
+<h4 id="4-end"><a name="user-content-4-end" href="#4-end" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>4、请解释 <code>.end()</code> 的用途。</h4>
+<p><code>.end()</code> 方法结束当前链条中的最近的筛选操作，并将匹配元素集还原为之前的状态。</p>
+<p>大多数 jQuery 的遍历方法会操作一个 jQuery 对象实例，并生成一个匹配不同 DOM 元素集的新对象。当发生这种情况时，应该会把新的元素集推入维持在对象中的堆栈内。每次成功的筛选方法调用都会把新元素推入堆栈中。如果我们需要老的元素集，可以使用 <code>.end()</code> 从堆栈中弹出新集合。</p>
+<h4 id="5"><a name="user-content-5" href="#5" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>5、你如何给一个事件处理函数命名空间，为什么要这样做？</h4>
+<p>使用命名空间可以避免命名冲突，更好的整理代码</p>
+<pre><code class="javascript">var NAMESPACE = {}
+NAMESPACE.eventHandle = function () {
+    ...
+}
+</code></pre>
+
+<h4 id="6-jquery"><a name="user-content-6-jquery" href="#6-jquery" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>6、请说出你可以传递给 jQuery 方法的四种不同值。</h4>
+<p>选择器（字符串），HTML（字符串），回调函数，HTML 元素，对象，数组，元素数组，jQuery对象等。</p>
+<h4 id="7"><a name="user-content-7" href="#7" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>7、什么是效果队列？</h4>
+<h4 id="8-geteq"><a name="user-content-8-geteq" href="#8-geteq" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>8、请指出 <code>.get()</code>，<code>[]</code>，<code>.eq()</code> 的区别。</h4>
+<p><code>.eq()</code> 返回的是一个 jQuery 对象，所以可以使用 jQuery 对象的方法，而 <code>.get()</code> 返回一个原生 DOM 对象。</p>
+<h4 id="9-bindlive-delegate"><a name="user-content-9-bindlive-delegate" href="#9-bindlive-delegate" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>9、请指出 <code>.bind()</code>，<code>.live()</code> 和 <code>.delegate()</code> 的区别。</h4>
+<p><code>.bind()</code> 直接将事件处理函数绑定到元素上。<code>.live()</code> 和 <code>.delegate()</code> 则是将事件处理函数绑定到一个特定父元素上，当事件冒泡到这个级时，再对目标元素执行事件处理函数，其中 <code>.live()</code> 默认绑定到 <code>document</code>。</p>
+<pre><code class="javascript">$('a').bind('click', function () { alert('That tickles!') });
+$('a').live('click', function () { alert('That tickles!') });
+$('.container').delegate('a', 'click', function () { alert('That tickles!') });
+</code></pre>
+
+<h4 id="10-fn-fn"><a name="user-content-10-fn-fn" href="#10-fn-fn" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>10、请指出 <code>$</code> 和 <code>$.fn</code> 的区别，或者说出 <code>$.fn</code> 的用途。</h4>
+<p>首先需要知道的是，<code>$</code> 是一个封装好的 jQUery 类，而 <code>$.fn</code> 是 <code>$.prototype</code> 的简写形式。<code>$.fn</code> 常用作给 jQuery 实例扩展方法，在编写 jQuery 插件时使用。</p>
+<h4 id="11foo-divbareq0"><a name="user-content-11foo-divbareq0" href="#11foo-divbareq0" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>11、请优化选择器：<code>$(".foo div#bar:eq(0)")</code></h4>
+<p>不会做</p></body></html>
