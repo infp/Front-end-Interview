@@ -10,7 +10,7 @@
 1. [常见问题](general.html)
 2. [HTML、CSS 相关](css.html)
 3. [JavaScript 及 jQuery](javascript.html)
-4. [其他]()
+4. [其他](others.html)
 
 #### 资源
 
