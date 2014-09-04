@@ -28,14 +28,16 @@
 
 * [Bootstrap]()：流行的前端框架
 * [Foundation](http://foundation.zurb.com/)：另一个前端框架
-* [jQuery]()
+* [jQuery](http://api.jquery.com/)：不必多说了
 * [Zepto.js](http://zeptojs.com/)：一个轻量级、移动优先的 JS 库
 * [Yahoo Pure](http://purecss.io/)：Yahoo！ 开发的前端框架
 
 #### 五、设计相关
 
-* [Material Design](http://design.1sters.com/)：Google 于 2014 年提出的设计理念
+* [Material Design](http://design.1sters.com/)：Google 于 2014 年提出的设计理念，这里还有[几段视频](http://www.zhihu.com/question/24276657/answer/28257441)
+* 
 
-#### 六、人物
+#### 六、几个前端博客
 
+* http://www.qianduan.net/
 * http://cyj.me/
