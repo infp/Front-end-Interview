@@ -15,9 +15,7 @@
 
 #### 三、关于 JavaScript 的书籍
 
-*不会 JavaScript 能混前端吗？很难！*
-
-学习 JavaScript，如下几本非常值得推荐：
+*不会 JavaScript 能混前端吗？很难！*那么学习 JavaScript，如下几本非常值得推荐：
 
 * [JavaScript 语言精粹](http://book.douban.com/subject/3590768/)
 * [JavaScript DOM 编程艺术](http://book.douban.com/subject/6038371/)
