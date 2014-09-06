@@ -373,15 +373,18 @@ td:not(.linenos) .linenodiv { padding: 0 !important; }
   p, h2, h3 { orphans: 3; widows: 3; }
   h2, h3 { page-break-after: avoid; }
 }
-</style><title>HTMLAndCSS</title></head><body><h3 id="html"><a name="user-content-html" href="#html" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>HTML 相关问题：</h3>
-<h4 id="1doctype"><a name="user-content-1doctype" href="#1doctype" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>1、<code>doctype</code>（文档类型）的作用是什么？</h4>
+</style><title>css</title></head><body><h3 id="html"><a name="user-content-html" href="#html" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>HTML 相关问题</h3>
+<h4 id="1doctype"><a name="user-content-1doctype" href="#1doctype" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>1、doctype（文档类型）的作用是什么？</h4>
+<p>声明页面文档的类型，以及告诉浏览器应该使用哪种模式进行渲染。</p>
 <h4 id="2"><a name="user-content-2" href="#2" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>2、浏览器标准模式和怪异模式之间的区别是什么？</h4>
+<p>由于历史的原因，各个浏览器在对页面的渲染上存在差异，甚至同一浏览器在不同版本中，对页面的渲染也不同。在 W3C 标准出台以前，浏览器在对页面的渲染上 没有统一规范，产生了差异（Quirks mode）；由于 W3C 标准的推出，浏览器渲染页面有了统一的标准（Standars mode），这就是二者最简单的区别。总而言之，怪异模式是为了兼容在标准推出之前出现的页面而设置的。</p>
+<p>浏览器会根据 doctype 来决定使用哪种渲染模式，比如 <code>&lt;!doctype html&gt;</code> 将会触发标准模式。如果页面中没有声明 doctype，浏览器则会使用怪异模式。</p>
 <h4 id="3-xhtml-applicationxhtmlxml"><a name="user-content-3-xhtml-applicationxhtmlxml" href="#3-xhtml-applicationxhtmlxml" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>3、使用 XHTML 的局限有哪些？ 如果页面使用 <code>application/xhtml+xml</code> 会有什么问题吗？</h4>
 <h4 id="4"><a name="user-content-4" href="#4" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>4、如果网页内容需要支持多语言，你会怎么做？在设计和开发多语言网站时，有哪些问题你必须要考虑？</h4>
 <h4 id="5data-"><a name="user-content-5data-" href="#5data-" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>5、<code>data-</code> 属性的作用是什么？</h4>
 <h4 id="6-cookiessessionstorage-localstorage"><a name="user-content-6-cookiessessionstorage-localstorage" href="#6-cookiessessionstorage-localstorage" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>6、请描述一下 cookies，sessionStorage 和 localStorage 的区别？</h4>
-<h4 id="7-get-post"><a name="user-content-7-get-post" href="#7-get-post" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>7、请描述一下 GET 和 POST 的区别?</h4>
-<h3 id="css"><a name="user-content-css" href="#css" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>CSS 相关问题：</h3>
+<h4 id="7-get-post"><a name="user-content-7-get-post" href="#7-get-post" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>7、请描述一下 GET 和 POST 的区别？</h4>
+<h3 id="css"><a name="user-content-css" href="#css" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>CSS 相关问题</h3>
 <h4 id="1-css-reset"><a name="user-content-1-css-reset" href="#1-css-reset" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>1、描述下 CSS reset 文件的作用和使用它的好处。</h4>
 <h4 id="2_1"><a name="user-content-2_1" href="#2_1" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>2、解释下浮动和它的工作原理。</h4>
 <h4 id="3"><a name="user-content-3" href="#3" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>3、列举不同的清除浮动的技巧，并指出它们各自适用的使用场景。</h4>
@@ -391,6 +394,7 @@ td:not(.linenos) .linenodiv { padding: 0 !important; }
 <h4 id="7"><a name="user-content-7" href="#7" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>7、如何为有功能限制的浏览器提供网页？你会使用哪些技术和处理方法？</h4>
 <h4 id="8"><a name="user-content-8" href="#8" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>8、有哪些的隐藏内容的方法（如果同时还要保证屏幕阅读器可用呢？）</h4>
 <h4 id="9"><a name="user-content-9" href="#9" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>9、你用过栅格系统吗？如果使用过，你最喜欢哪种？</h4>
+<p>参考：</p>
 <h4 id="10-css"><a name="user-content-10-css" href="#10-css" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>10、你用过媒体查询，或针对移动端的布局 CSS 吗？</h4>
 <h4 id="11-svg"><a name="user-content-11-svg" href="#11-svg" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>11、你熟悉 SVG 样式的书写吗？</h4>
 <h4 id="12"><a name="user-content-12" href="#12" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>12、如何优化网页的打印样式？</h4>

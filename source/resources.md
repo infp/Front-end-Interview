@@ -13,6 +13,8 @@
 * [CSS Tricks](http://css-tricks.com/)
 * [Code Pen](http://codepen.io/)：这里有很多 DEMO 值得借鉴
 
+* [学习 CSS 布局](http://zh.learnlayout.com/)
+
 #### 三、关于 JavaScript 的书籍
 
 *不会 JavaScript 能混前端吗？很难！*那么学习 JavaScript，如下几本非常值得推荐：
