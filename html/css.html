@@ -1048,6 +1048,7 @@ body .markdown-body
 <p>参考：<a href="http://stackoverflow.com/questions/211383/which-method-of-clearfix-is-best">http://stackoverflow.com/questions/211383/which-method-of-clearfix-is-best</a></p>
 <h4 id="4-css-sprites"><a name="user-content-4-css-sprites" href="#4-css-sprites" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>4、解释下 CSS sprites，以及你要如何在页面或网站中使用它。</h4>
 <p>将一些小图片整合到一张大图里面，来达到减少 HTTP 请求的目的。一般我会把单页需要的 icon 整合到一张，整站需要的整合到一张。这样尽量避免加载当前页不需要的图片。还可以把色值相近的图片放一起，可以让压缩的图片体积更小。</p>
+<p>在网站中使用 SVG 或 Icon Font 也不错。</p>
 <h4 id="5"><a name="user-content-5" href="#5" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>5、你最喜欢的图片替换方法是什么，你如何选择使用。</h4>
 <p>Image Replacement 是说用图片把文字替换掉的技术，常用在标题上。</p>
 <pre><code class="html">&lt;h1 class=&quot;nir&quot;&gt;[content]&lt;/h1&gt;
@@ -1077,14 +1078,19 @@ body .markdown-body
 </ol>
 <p>当然，工作中的标准都是尽量满足设计，如果不能满足的话就尽量贴近，不得已（性能之类的问题）才会砍掉某个浏览器版本上的需求。</p>
 <h4 id="8"><a name="user-content-8" href="#8" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>8、有哪些的隐藏内容的方法（如果同时还要保证屏幕阅读器可用呢？）</h4>
-<p>真的要隐藏的话，就是 <code>display: none</code>，即便是读屏设备也会忽略掉这些内容。如果想要在读屏设备中让这些内容可见。解决方案的基本思路都是将这些内容放到屏幕、视线意外的地方，或者就是将大小设置成 0。比如 <code>text-indent: -9999em</code>、<code>overflow: hidden</code>、<code>height: 0</code>。</p>
-<p>不过既然这是了读屏而优化的，那么可以用 Media Query 来完成，@<code>media speech</code> 用于语音输出的读屏设备。</p>
+<p>常用的隐藏方法有两种：</p>
+<ol>
+<li>对于 <code>display: none</code>，即便是读屏设备也会忽略掉这些内容（其实浏览器对于设置为 <code>display: none</code> 的元素不会进行渲染）。</li>
+<li>而设置为 <code>visibility: hidden</code> 的元素，他仍然存在于文档中，占据本来的位置。</li>
+</ol>
+<p>对于屏幕阅读器的优化，可以用媒体查询来完成，@<code>media speech</code> 用于语音输出的读屏设备。</p>
 <pre><code class="css">@media speech {
     /* media-specify rules */
 }
 </code></pre>
 
 <h4 id="9"><a name="user-content-9" href="#9" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>9、你用过栅格系统吗？如果使用过，你最喜欢哪种？</h4>
+<p>用过。栅格系统应该依据具体的情形而使用，能与当前项目深度结合最好，不要为使用栅格系统而使用栅格系统。掌握栅格系统的解决问题的思维方式很重要。</p>
 <p>参考：<a href="http://yianbin.gitgub.io/bitty-grid-system">http://yianbin.gitgub.io/bitty-grid-system</a></p>
 <h4 id="10-css"><a name="user-content-10-css" href="#10-css" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>10、你用过媒体查询，或针对移动端的布局 CSS 吗？</h4>
 <p>使用媒体查询实现响应话网页设计（RWD），同时是移动端优先：</p>
@@ -1146,4 +1152,6 @@ body .markdown-body
 <h4 id="21-relativefixedabsolute-static"><a name="user-content-21-relativefixedabsolute-static" href="#21-relativefixedabsolute-static" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>21、请解释一下 <code>relative</code>、<code>fixed</code>、<code>absolute</code> 和 <code>static</code> 元素的区别</h4>
 <p><code>static</code> 是 <code>position</code> 属性的默认值，任何 <code>position</code> 为 <code>static</code> 的元素不会被特殊的定位。相对定位 <code>relative</code> 表现的和 <code>static</code> 一样，除非你添加了一些额外的属性（<code>top</code> 、<code>right</code>、<code>bottom</code> 和 <code>left</code>）。一个固定定位（<code>position</code> 属性的值为 <code>fixed</code>）元素会相对于视窗来定位，这意味着即便页面滚动，它还是会停留在相同的位置。和 <code>relative</code> 一样，<code>top</code> 、<code>right</code>、<code>bottom</code> 和 <code>left</code> 属性都可用。一个固定定位元素不会保留它原本在页面应有的空隙。<code>absolute</code> 是最棘手的 <code>position</code> 值。<code>absolute</code> 与 <code>fixed</code> 的表现类似，除了它不是相对于视窗而是相对于最近的被定位的（<code>position</code> 值不是 <code>static</code>）祖先元素。</p>
 <h4 id="22cssbootstrap-purecss-foundation-css"><a name="user-content-22cssbootstrap-purecss-foundation-css" href="#22cssbootstrap-purecss-foundation-css" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>22、你目前在使用哪一套CSS框架，或者在产品线上使用过哪一套？（Bootstrap, PureCSS, Foundation 等等）。如果有，请问是哪一套？如果可以，你如何改善 CSS 框架？</h4>
-<h4 id="24-css-flexbox-grid-specs"><a name="user-content-24-css-flexbox-grid-specs" href="#24-css-flexbox-grid-specs" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>24、请问你有使用过 CSS Flexbox 或者 Grid specs 吗？如果有，请问在性能和效率的方面你是怎么看的？</h4></article></body></html>
+<p>使用过 Bootstrap、Flat UI 等。</p>
+<h4 id="24-css-flexbox-grid-specs"><a name="user-content-24-css-flexbox-grid-specs" href="#24-css-flexbox-grid-specs" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>24、请问你有使用过 CSS Flexbox 或者 Grid specs 吗？如果有，请问在性能和效率的方面你是怎么看的？</h4>
+<p>不会</p></article></body></html>

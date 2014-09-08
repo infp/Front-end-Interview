@@ -1082,15 +1082,15 @@ a();        // 1
 </ul>
 <h4 id="12"><a name="user-content-12" href="#12" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>12 你是如何组织自己的代码？是使用模块模式，还是使用经典继承的方法？</h4>
 <h4 id="13-javascript"><a name="user-content-13-javascript" href="#13-javascript" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>13 请指出 JavaScript 宿主对象和原生对象的区别？</h4>
-<p>何为“宿主对象”？  ECMAScript中的“宿主”当然就是我们网页的运行环境，即“操作系统”和“浏览器”。所有非本地对象都是宿主对象（host object），即由 ECMAScript 实现的宿主环境提供的对象。<br />
-所有的BOM和DOM对象都是宿主对象。因为其对于不同的“宿主”环境所展示的内容不同。</p>
+<p>何为“宿主对象”？ECMAScript中的“宿主”当然就是我们网页的运行环境，即“操作系统”和“浏览器”。所有非本地对象都是宿主对象（host object），即由 ECMAScript 实现的宿主环境提供的对象。<br />
+所有的 BOM 和 DOM 对象都是宿主对象。因为其对于不同的“宿主”环境所展示的内容不同。</p>
 <h4 id="14"><a name="user-content-14" href="#14" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>14、指出下列代码的区别：</h4>
 <pre><code class="javascript">function Person(){} 
 var person = Person(); 
 var person = new Person();
 </code></pre>
 
-<p>第一行是定义了一个函数 <code>Person()</code>；第二行代码是执行函数 <code>Person()</code> 并将其返回值复制给变量 <code>person</code>；第三行代码是用构造函数 <code>Person()</code> 构造一个实例对象 <code>person</code>。</p>
+<p>第一行是定义了一个函数 <code>Person()</code>；第二行代码是执行函数 <code>Person()</code> 并将其返回值复制给变量 <code>person</code>，如果 <code>Person()</code> 是一个构造器函数的话，新的对象将不会被创建，并且 <code>this</code> 将被绑定到全局对象上；第三行代码是用构造函数 <code>Person()</code> 构造一个实例对象 <code>person</code>。</p>
 <h4 id="15call-apply"><a name="user-content-15call-apply" href="#15call-apply" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>15、<code>.call</code> 和 <code>.apply</code> 的区别是什么？</h4>
 <p><code>.call</code> 的函数原型是 <code>function.call([thisObj[, arg1[, arg2[, .. [, argN]]]]])</code>，而 <code>.apply</code> 的函数原型则是 <code>function.apply([thisObj[, argArray]])</code>。</p>
 <p>可以看出，<code>.apply</code> 最多只能有两个参数：新对象 <code>thisObj</code> 及一个数组 <code>argArray</code>，<code>.call</code> 则是直接的参数列表。</p>
@@ -1165,6 +1165,15 @@ null  == undefined      // true
 <p>事件代理</p>
 <h4 id="35"><a name="user-content-35" href="#35" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>35、什么是三元表达式？“三元”表示什么意思？</h4>
 <h4 id="36"><a name="user-content-36" href="#36" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>36、函数的参数元是什么？</h4>
+<p>在函数内部，可以使用一个特殊的参数对象 <code>arguments</code>。比如有这样一个面试题：定义一个函数 <code>log</code>，实现 <code>console.log</code> 的功能同时有一个前缀 <code>(app)</code>，我们知道 <code>log</code> 应该可以处理不定数量个的参数，那么使用下面的代码是正确的：</p>
+<pre><code class="javascript">var log = functin () {
+    var args = Array.prototype.slice.call(arguments);
+    args.unshift('(app) ');
+    console.log.apply(console, args);
+}
+</code></pre>
+
+<p>需要注意的是，<code>arguments</code> 是一个伪数组，需要将其转化为标准数组之后才能使用 <code>unshift</code> 方法。</p>
 <h4 id="37-use-strict"><a name="user-content-37-use-strict" href="#37-use-strict" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>37、什么是 <code>use strict;</code> ? 使用它的好处和坏处分别是什么？</h4>
 <p><code>use strict;</code> 将使 JS 代码以严格模式（strict mode）运行。设立&rdquo;严格模式&rdquo;的目的，主要有以下几个：</p>
 <ul>
