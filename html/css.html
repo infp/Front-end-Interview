@@ -1008,17 +1008,48 @@ body .markdown-body
 <h4 id="3-xhtml-applicationxhtmlxml"><a name="user-content-3-xhtml-applicationxhtmlxml" href="#3-xhtml-applicationxhtmlxml" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>3、使用 XHTML 的局限有哪些？ 如果页面使用 <code>application/xhtml+xml</code> 会有什么问题吗？</h4>
 <h4 id="4"><a name="user-content-4" href="#4" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>4、如果网页内容需要支持多语言，你会怎么做？在设计和开发多语言网站时，有哪些问题你必须要考虑？</h4>
 <h4 id="5data-"><a name="user-content-5data-" href="#5data-" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>5、<code>data-</code> 属性的作用是什么？</h4>
+<p>当没有合适的属性和元素时，自定义的 <code>data-</code> 属性是能够存储页面或 App 的私有的自定义数据。</p>
+<blockquote>
+<p>Custom data attributes are intended to store custom data private to the page or application, for which there are no more appropriate attributes or elements.</p>
+</blockquote>
+<p>可以通过 <code>ele.dataset.xxx</code> 来访问 <code>data-xxx=""</code>。</p>
 <h4 id="6-cookiessessionstorage-localstorage"><a name="user-content-6-cookiessessionstorage-localstorage" href="#6-cookiessessionstorage-localstorage" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>6、请描述一下 cookies，sessionStorage 和 localStorage 的区别？</h4>
+<h5 id="cookie"><a name="user-content-cookie" href="#cookie" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>Cookie</h5>
+<ol>
+<li>每个域名存储量比较小（各浏览器不同，大致 4K）</li>
+<li>所有域名的存储量有限制（各浏览器不同，大致 4K）</li>
+<li>有个数限制（各浏览器不同）</li>
+<li>会随请求发送到服务器</li>
+</ol>
+<h5 id="localstorage"><a name="user-content-localstorage" href="#localstorage" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>localStorage</h5>
+<ol>
+<li>永久存储</li>
+<li>单个域名存储量比较大（推荐 5MB，各浏览器不同）</li>
+<li>总体数量无限制</li>
+</ol>
+<h5 id="sessionstorage"><a name="user-content-sessionstorage" href="#sessionstorage" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>sessionStorage</h5>
+<ol>
+<li>只在 Session 内有效</li>
+<li>存储量更大（推荐没有限制，但是实际上各浏览器也不同）</li>
+</ol>
 <h4 id="7-get-post"><a name="user-content-7-get-post" href="#7-get-post" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>7、请描述一下 GET 和 POST 的区别？</h4>
+<ol>
+<li>GET 将参数放在 URL 的 Query String 里，有长度限制，只支持 ASCII 数据</li>
+<li>POST 将参数放在 HTTP body 中</li>
+</ol>
+<p>另外，HTTP 除了这两种请求方式，还有 HEAD、PUT、DELETE、OPTIONS、CONNECT、PATCH。</p>
+<p>相关的话题就是 RESTful 接口，可以看看阮一峰的文章：<a href="http://www.ruanyifeng.com/blog/2011/09/restful.html">《理解RESTful架构》</a>和<a href="http://www.ruanyifeng.com/blog/2014/05/restful_api.html">《RESTful API 设计指南》</a>。</p>
 <h3 id="css"><a name="user-content-css" href="#css" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>CSS 相关问题</h3>
 <h4 id="1-css-reset"><a name="user-content-1-css-reset" href="#1-css-reset" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>1、描述下 CSS reset 文件的作用和使用它的好处。</h4>
-<p>使用 CSS reset 可以重置浏览器对于 HTML 元素的默认样式。</p>
+<p>CSS reset（CSS 重置），可以重置浏览器对于 HTML 元素的默认样式，作用是让各个浏览器的 CSS 的样式有一个统一的基准。</p>
+<p>比较流行的 CSS reset 有Eric Meyer’s Reset CSS、Normalize.css、YUI Reset 等等，进一步可以看 <a href="http://www.cssreset.com/">CSS Reset</a>。</p>
 <h4 id="2_1"><a name="user-content-2_1" href="#2_1" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>2、解释下浮动和它的工作原理。</h4>
 <h4 id="3"><a name="user-content-3" href="#3" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>3、列举不同的清除浮动的技巧，并指出它们各自适用的使用场景。</h4>
 <p>参考：<a href="http://stackoverflow.com/questions/211383/which-method-of-clearfix-is-best">http://stackoverflow.com/questions/211383/which-method-of-clearfix-is-best</a></p>
 <h4 id="4-css-sprites"><a name="user-content-4-css-sprites" href="#4-css-sprites" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>4、解释下 CSS sprites，以及你要如何在页面或网站中使用它。</h4>
 <p>将一些小图片整合到一张大图里面，来达到减少 HTTP 请求的目的。一般我会把单页需要的 icon 整合到一张，整站需要的整合到一张。这样尽量避免加载当前页不需要的图片。还可以把色值相近的图片放一起，可以让压缩的图片体积更小。</p>
 <h4 id="5"><a name="user-content-5" href="#5" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>5、你最喜欢的图片替换方法是什么，你如何选择使用。</h4>
+<p>Image Replacement 是说用图片把文字替换掉的技术，常用在标题上。</p>
 <pre><code class="html">&lt;h1 class=&quot;nir&quot;&gt;[content]&lt;/h1&gt;
 </code></pre>
 
@@ -1039,13 +1070,20 @@ body .markdown-body
 <p>参考：<a href="http://nicolasgallagher.com/css-image-replacement-with-pseudo-elements/">http://nicolasgallagher.com/css-image-replacement-with-pseudo-elements/</a></p>
 <h4 id="6-css-hacks"><a name="user-content-6-css-hacks" href="#6-css-hacks" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>6、讨论 CSS hacks，条件引用或者其他。</h4>
 <h4 id="7"><a name="user-content-7" href="#7" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>7、如何为有功能限制的浏览器提供网页？你会使用哪些技术和处理方法？</h4>
-<p>采用优雅降级方法，对于不支持新特性的浏览器，采用其他的方法来实现。</p>
+<p>这里有两种思路，一个是渐进增强，一个优雅降级。</p>
+<ol>
+<li>渐进增强的思路就是提供一个可用的原型，后来再为高级浏览器提供优化。</li>
+<li>优雅降级的思路是根据高级浏览器提供一个版本，然后有功能限制的浏览器只需要一个刚好能用的版本。</li>
+</ol>
+<p>当然，工作中的标准都是尽量满足设计，如果不能满足的话就尽量贴近，不得已（性能之类的问题）才会砍掉某个浏览器版本上的需求。</p>
 <h4 id="8"><a name="user-content-8" href="#8" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>8、有哪些的隐藏内容的方法（如果同时还要保证屏幕阅读器可用呢？）</h4>
-<pre><code class="css">display: none;
-visibility: hidden;
+<p>真的要隐藏的话，就是 <code>display: none</code>，即便是读屏设备也会忽略掉这些内容。如果想要在读屏设备中让这些内容可见。解决方案的基本思路都是将这些内容放到屏幕、视线意外的地方，或者就是将大小设置成 0。比如 <code>text-indent: -9999em</code>、<code>overflow: hidden</code>、<code>height: 0</code>。</p>
+<p>不过既然这是了读屏而优化的，那么可以用 Media Query 来完成，@<code>media speech</code> 用于语音输出的读屏设备。</p>
+<pre><code class="css">@media speech {
+    /* media-specify rules */
+}
 </code></pre>
 
-<p>上面的两种方法均可实现内容隐藏，但又有区别：样式设置为 <code>visibility: hidden</code> 的元素仍然会被浏览器渲染，所以所以它仍然会占用文档空间；而 <code>display: none</code> 则会把元素从文档中移除。</p>
 <h4 id="9"><a name="user-content-9" href="#9" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>9、你用过栅格系统吗？如果使用过，你最喜欢哪种？</h4>
 <p>参考：<a href="http://yianbin.gitgub.io/bitty-grid-system">http://yianbin.gitgub.io/bitty-grid-system</a></p>
 <h4 id="10-css"><a name="user-content-10-css" href="#10-css" class="headeranchor-link"  aria-hidden="true"><span class="headeranchor"></span></a>10、你用过媒体查询，或针对移动端的布局 CSS 吗？</h4>

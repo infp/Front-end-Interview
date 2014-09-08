@@ -17,16 +17,49 @@
 
 #### 5、`data-` 属性的作用是什么？
 
+当没有合适的属性和元素时，自定义的 `data-` 属性是能够存储页面或 App 的私有的自定义数据。
+
+> Custom data attributes are intended to store custom data private to the page or application, for which there are no more appropriate attributes or elements.
+
+可以通过 `ele.dataset.xxx` 来访问 `data-xxx=""`。
+
 #### 6、请描述一下 cookies，sessionStorage 和 localStorage 的区别？
 
+##### Cookie
+
+1. 每个域名存储量比较小（各浏览器不同，大致 4K）
+2. 所有域名的存储量有限制（各浏览器不同，大致 4K）
+3. 有个数限制（各浏览器不同）
+4. 会随请求发送到服务器
+
+##### localStorage
+
+1. 永久存储
+2. 单个域名存储量比较大（推荐 5MB，各浏览器不同）
+3. 总体数量无限制
+
+##### sessionStorage
+
+1. 只在 Session 内有效
+2. 存储量更大（推荐没有限制，但是实际上各浏览器也不同）
+
 #### 7、请描述一下 GET 和 POST 的区别？
+
+1. GET 将参数放在 URL 的 Query String 里，有长度限制，只支持 ASCII 数据
+2. POST 将参数放在 HTTP body 中
+
+另外，HTTP 除了这两种请求方式，还有 HEAD、PUT、DELETE、OPTIONS、CONNECT、PATCH。
+
+相关的话题就是 RESTful 接口，可以看看阮一峰的文章：[《理解RESTful架构》](http://www.ruanyifeng.com/blog/2011/09/restful.html)和[《RESTful API 设计指南》](http://www.ruanyifeng.com/blog/2014/05/restful_api.html)。
 
 
 ### CSS 相关问题
 
 #### 1、描述下 CSS reset 文件的作用和使用它的好处。
 
-使用 CSS reset 可以重置浏览器对于 HTML 元素的默认样式。
+CSS reset（CSS 重置），可以重置浏览器对于 HTML 元素的默认样式，作用是让各个浏览器的 CSS 的样式有一个统一的基准。
+
+比较流行的 CSS reset 有Eric Meyer’s Reset CSS、Normalize.css、YUI Reset 等等，进一步可以看 [CSS Reset](http://www.cssreset.com/)。
 
 #### 2、解释下浮动和它的工作原理。
 
@@ -39,6 +72,8 @@
 将一些小图片整合到一张大图里面，来达到减少 HTTP 请求的目的。一般我会把单页需要的 icon 整合到一张，整站需要的整合到一张。这样尽量避免加载当前页不需要的图片。还可以把色值相近的图片放一起，可以让压缩的图片体积更小。
 
 #### 5、你最喜欢的图片替换方法是什么，你如何选择使用。
+
+Image Replacement 是说用图片把文字替换掉的技术，常用在标题上。
 
 ```html
 <h1 class="nir">[content]</h1>
@@ -65,16 +100,24 @@
 
 #### 7、如何为有功能限制的浏览器提供网页？你会使用哪些技术和处理方法？
 
-采用优雅降级方法，对于不支持新特性的浏览器，采用其他的方法来实现。
+这里有两种思路，一个是渐进增强，一个优雅降级。
+
+1. 渐进增强的思路就是提供一个可用的原型，后来再为高级浏览器提供优化。
+2. 优雅降级的思路是根据高级浏览器提供一个版本，然后有功能限制的浏览器只需要一个刚好能用的版本。
+
+当然，工作中的标准都是尽量满足设计，如果不能满足的话就尽量贴近，不得已（性能之类的问题）才会砍掉某个浏览器版本上的需求。
 
 #### 8、有哪些的隐藏内容的方法（如果同时还要保证屏幕阅读器可用呢？）
 
-```css
-display: none;
-visibility: hidden;
-```
+真的要隐藏的话，就是 `display: none`，即便是读屏设备也会忽略掉这些内容。如果想要在读屏设备中让这些内容可见。解决方案的基本思路都是将这些内容放到屏幕、视线意外的地方，或者就是将大小设置成 0。比如 `text-indent: -9999em`、`overflow: hidden`、`height: 0`。
 
-上面的两种方法均可实现内容隐藏，但又有区别：样式设置为 `visibility: hidden` 的元素仍然会被浏览器渲染，所以所以它仍然会占用文档空间；而 `display: none` 则会把元素从文档中移除。
+不过既然这是了读屏而优化的，那么可以用 Media Query 来完成，@`media speech` 用于语音输出的读屏设备。
+
+```css
+@media speech {
+    /* media-specify rules */
+}
+```
 
 #### 9、你用过栅格系统吗？如果使用过，你最喜欢哪种？
 
