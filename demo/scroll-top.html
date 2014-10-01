@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Scroll Top</title>
+	<style>
+	.container { margin: 0 auto; width: 980px; height: 1000px; background-color: #f9f9f9; }
+	.scrolltop { position: fixed; bottom: 10px; left: 50%; margin-left: 500px; width: 30px; height: 30px; background-color: #fae321; }
+	</style>
+</head>
+<body>
+	<div class="container"></div>
+	<div class="scrolltop"></div>
+	<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript">
+	$(function () {
+		$('.scrolltop').hide();
+
+		$(window).on('scroll', function () {
+			if ($(this).scrollTop() > 100) {
+				$('.scrolltop').fadeIn();
+			} else {
+				$('.scrolltop').fadeOut();
+			}
+		});
+
+		$('.scrolltop').on('click', function () {
+			$('body').animate({
+				scrollTop: 0
+			}, 300);
+		})
+	})
+	</script>
+</body>
+</html>
