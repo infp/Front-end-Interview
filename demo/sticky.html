@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Sticky</title>
+	<style>
+	body { margin: 0; }
+	.container-fluid { height: 150px; background-color: #39cccc; }
+	.container { margin: 0 auto; width: 980px; display: flex; }
+	.container .main { width: 800px; flex: 1; }
+	.container .main .section { height: 400px; }
+	.container .sidebar { padding: 20px; flex: 0 0 180px; }
+	.container .sidebar .elevator { height: 300px; border: 1px soild #aaaaaa; border-radius: 3px; }
+	.sticky { position: fixed; top: 0; }
+	</style>
+</head>
+<body>
+	<div class="container-fluid" id="heading"></div>
+	<div class="container">
+		<div class="main">
+			<div class="section" style="background-color: #0074d9"></div>
+			<div class="section" style="background-color: #ff4136"></div>
+			<div class="section" style="background-color: #01ff70"></div>
+			<div class="section" style="background-color: #001f3f"></div>
+			<div class="section" style="background-color: #f012be"></div>
+		</div>
+		<div class="sidebar"></div>
+	</div>
+	<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript">
+	$(function () {
+
+		$(window).on('scroll', function () {
+			if ($(this).scrollTop() > $('#heading').offset().top) {
+				$('.sidebar').addClass('sticky');
+			} else {
+				$('.sidebar').removeClass('sticky');
+			}
+		});
+	})
+	</script>
+</body>
+</html>
